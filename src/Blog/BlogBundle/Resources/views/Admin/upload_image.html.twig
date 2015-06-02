@@ -1,0 +1,14 @@
+{% extends "::admin_base.html.twig" %}
+
+{% block body %}
+{{ parent() }}
+<div class="container">
+	<h2> Uploader une image </h2>
+
+	<form class="form-group" action="{{ path("admin_ajouter_image") }}" method="post" {{ form_enctype(form) }}>
+		{{ form_widget(form)}}
+		<br>
+		<input class="btn btn-primary" type="submit">
+	</form>
+</div>
+{% endblock%}

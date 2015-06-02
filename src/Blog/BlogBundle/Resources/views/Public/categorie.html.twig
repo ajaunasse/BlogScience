@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+
+	{% for article in articles %}
+		{% include "BlogBundle:Public:article_layout.html.twig" with {'link' : true, 'contenu' : false, 'description' : true} %}
+	<hr>
+	{% endfor%}
+{% endblock%}

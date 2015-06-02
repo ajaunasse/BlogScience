@@ -1,0 +1,35 @@
+{% extends "::admin_base.html.twig" %}
+{% block body %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{{ path("Blog_admin_home") }}">Administration</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ path("Blog_admin_home") }}"> Gestion des Articles </a></li>
+            <li><a href="{{ path("admin_index_categorie") }}"> Gestion des catégories </a></li>
+            <li><a href="{{ path("admin_index_image") }}"> Gestion des images </a></li>       
+            <li><a href="{{ path("fos_user_profile_edit") }}"> Profile </a></li>
+            <li><a href="{{ path("fos_user_security_logout") }}"> Deconnexion</a></li>
+            
+            <li><a href="{{ path("blog_homepage") }}"> Retour au site </a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+   
+
+        {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <div>
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+{% endblock %}

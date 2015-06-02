@@ -1,0 +1,38 @@
+{% extends "::admin_base.html.twig" %}
+{% block body %}
+{{ parent() }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<br>
+				<a class="btn btn-primary" href="{{ path('admin_ajout_article') }}"> Ajouter un article</a>
+				<table class="table table-striped" > 
+		  			<caption> Liste des articles </caption> 
+		  			<thead>
+				  		<tr> 
+				 			<th> Id </th> 
+							<th> Titre </th> 
+							<th> Statut </th> 
+							<th> Action </th> 
+				  		</tr> 
+		  			</thead>
+		  			<tbody>
+		  				{% for article in articles %}
+		  					<tr> 
+								<td> {{ article.id }} </td> 
+								<td> {{ article.titre }}  </td> 
+								{% if article.online == false %}
+								<td><span class="btn btn-danger"> Hors Ligne </span> </td> 
+								{% else %}
+								<td> <span class="btn btn-success" >En ligne </span> </td>
+								{% endif %}
+								<td>  <a href="{{ path('article_only', {'id':article.id ,'slug':article.slug }) }}" title="{{article.contenu}}"> Voir </a> |  <a href="{{ path('admin_editer_article', {'id':article.id}) }}"> editer </a> | <a href="{{ path('admin_supprimer_article', {'id':article.id}) }}"> Supprimer </a> </td> 
+		  					</tr> 
+		  				{% endfor %}
+		  			</tbody>
+				</table> 
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

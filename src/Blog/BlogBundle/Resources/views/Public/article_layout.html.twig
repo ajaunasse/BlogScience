@@ -1,0 +1,30 @@
+	<article>
+		<header>
+			<h3> {{ article.titre }} </h3>
+			<time>{{ article.date|date('d M Y') }}</time>
+			<p>
+				<a href="{{ path('page_categorie',{'id':article.categorie.id, 'name':article.categorie.name}) }}">{{ article.categorie.name }} </a>
+			</P>
+		</header>
+
+		 <img src="{{ asset('uploads/images/') ~ article.getImage().getPath() }}" alt="{{ article.getImage().getName() }}" height="392" width="590"/>
+		{% if description %}
+		<p>
+			{{article.description}}
+		</p>
+		{% endif %}
+		{% if contenu %}
+		<div class="content">
+
+
+			<p> {{article.contenu|markdown}} </p>
+		</div>
+		{% endif %}
+		<div>
+			{% if link %}
+			<a href="{{ path('article_only', {'id':article.id ,'slug':article.slug }) }}" title="{{article.contenu}}"  data-disqus-identifier="{{ article.id }}"> Lire la suite</a>
+			<span class="disqus-comment-count" data-disqus-url="{{ path('article_only', {'id':article.id ,'slug':article.slug }) }}">  </span>
+			<span class="disqus-comment-count" data-disqus-identifier="{{ article.id }}"> </span>
+			{% endif %}
+		</div>
+	</article>

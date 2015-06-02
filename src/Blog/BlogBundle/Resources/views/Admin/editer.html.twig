@@ -1,0 +1,28 @@
+{% extends "::admin_base.html.twig" %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/mdeditor.css') }} ">
+{% endblock %}
+{% block body %}
+{{ parent() }}
+	<div class="container">
+		<h1> Editer  un article </h1>
+
+	<form class="form-group" action="{{ path("admin_editer_article" , {'id': id}) }}" method="post">
+		{{ form_widget(form)}}
+
+		<input class="btn btn-primary" type="submit">
+	</form>
+
+{% endblock%}	
+{% block javascripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="{{ asset('js/mdeditor.js') }}"></script>
+<script>
+  var md = new MdEditor('#blog_blogbundle_article_contenu', {
+    uploader: 'http://local.dev/Lab/MdEditor/app/upload.php',
+    preview: true,
+  });
+</script>
+
+ {% endblock %}

@@ -1,0 +1,11 @@
+{% trans_default_domain 'BlogUserBundle' %}
+<div class="container">
+<h2> Editer profil </h2>
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+    {{ form_widget(form) }}
+    <br>
+    <div>
+        <input  class="btn btn-primary" type="submit"  />
+    </div>
+</form>
+</div>

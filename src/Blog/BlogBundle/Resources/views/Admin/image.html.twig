@@ -1,0 +1,35 @@
+{% extends "::admin_base.html.twig" %}
+{% block body %}
+{{ parent() }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1> Gestion des images </h1>
+				<br>
+				<a class="btn btn-primary" href="{{ path('admin_ajouter_image') }}"> Uploader une image</a>
+				<table class="table table-striped" > 
+		  			<caption> Liste des images</caption> 
+		  			<thead>
+				  		<tr> 
+				 			<th> Id </th> 
+							<th> Titre </th>
+							<th> Image </th> 
+							<th> Action </th>  
+				  		</tr> 
+		  			</thead>
+		  			<tbody>
+		  				{% for image in images %}
+		  					<tr> 
+								<td> {{ image.id }} </td> 
+								<td> {{ image.name }}  </td> 
+								<td>  <img src="{{ asset('uploads/images/') ~ image.path }}" alt="{{ image.name }}" height="200" width="340" /> </td>
+								<td>  <a href=""> Voir </a> |  <a href=""> editer </a> | <a href=""> Supprimer </a> </td> 
+  							</tr> 
+		  				{% endfor %}
+		  			</tbody>
+				</table> 
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

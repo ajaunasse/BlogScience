@@ -1,0 +1,35 @@
+{% extends "::admin_base.html.twig" %}
+{% block body %}
+{{ parent() }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1> Gestion des categories </h1>
+				<br>
+				<a class="btn btn-primary" href="{{ path('admin_ajout_categorie') }}"> Ajouter une categorie</a>
+				<table class="table table-striped" > 
+		  			<caption> Liste des categories</caption> 
+		  			<thead>
+				  		<tr> 
+				 			<th> Id </th> 
+							<th> Titre </th> 
+							<th> Description </th> 
+							<th> Action </th> 
+				  		</tr> 
+		  			</thead>
+		  			<tbody>
+		  				{% for categorie in categories %}
+		  					<tr> 
+								<td> {{ categorie.id }} </td> 
+								<td> {{ categorie.name }}  </td> 
+								<td> {{ categorie.description }}  </td> 
+								<td>  <a href=""> Voir </a> |  <a href="{{ path("admin_editer_categorie", {'id': categorie.id }) }}"> editer </a> | <a href="{{ path("admin_supprimer_categorie" , {'id': categorie.id } ) }}"> Supprimer </a> </td> 
+  							</tr> 
+		  				{% endfor %}
+		  			</tbody>
+				</table> 
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

@@ -1,0 +1,50 @@
+Blog_admin_home:
+    pattern : /
+    defaults : { _controller : BlogBundle:Admin:index}
+    requirements :
+        _method : GET
+
+# Article 
+admin_ajout_article:
+    pattern : /ajouter
+    defaults : { _controller : BlogBundle:Article:ajouter}
+    requirements :
+        _method : GET|POST
+
+admin_editer_article:
+    pattern : /{id}/editer
+    defaults : { _controller : BlogBundle:Article:editer}
+    requirements :
+        _method : GET|POST
+
+admin_supprimer_article:
+    pattern : /{id}/supprimer
+    defaults : { _controller : BlogBundle:Article:supprimer}
+    requirements :
+        _method : GET|POST
+
+#Categorie 
+admin_index_categorie:
+    pattern : /Categorie
+    defaults : {_controller : BlogBundle:Admin:Categorie}
+
+admin_ajout_categorie:
+    pattern : /Categorie/add
+    defaults : {_controller : BlogBundle:Categorie:ajouter}
+
+admin_editer_categorie:
+    pattern : /Categorie/{id}/edit
+    defaults : {_controller : BlogBundle:Categorie:editer}
+
+admin_supprimer_categorie:
+    pattern : /Categorie/{id}/supprimer
+    defaults : {_controller : BlogBundle:Categorie:supprimer}
+
+#Image
+admin_index_image:
+    pattern : /Image
+    defaults : {_controller : BlogBundle:Admin:image}
+
+admin_ajouter_image:
+    pattern : /Image/add
+    defaults : {_controller : BlogBundle:Image:ajouter}
