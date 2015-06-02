@@ -34,8 +34,16 @@ class ArticleType extends AbstractType
                     'property' => 'name',
                     'multiple' => false,
                     'attr' => array('class'=> 'form-control')))
+              ->add('tag', 'collection', array(
+                  'type' => new TagType(),
+                  'allow_add' => true,
+                  'allow_delete' => true,
+                  'by_reference' => false,
+            
+            ))
             ->add('online', 'checkbox', array(
               'required'    => false,))
+         
         ;
     }
     

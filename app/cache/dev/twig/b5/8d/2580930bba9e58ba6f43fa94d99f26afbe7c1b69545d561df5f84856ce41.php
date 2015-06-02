@@ -78,7 +78,7 @@ class __TwigTemplate_b58d2580930bba9e58ba6f43fa94d99f26afbe7c1b69545d561df5f8485
            \t<li><a href=\"";
         // line 22
         echo $this->env->getExtension('routing')->getPath("admin_index_image");
-        echo "\"> Gestion des images </a></li>       
+        echo "\"> Gestion des images </a></li>    
             <li><a href=\"";
         // line 23
         echo $this->env->getExtension('routing')->getPath("fos_user_profile_edit");

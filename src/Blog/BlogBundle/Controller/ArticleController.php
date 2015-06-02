@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blog\BlogBundle\Entity\Article ;
 use Blog\BlogBundle\Form\ArticleType ;
 use Blog\BlogBundle\Entity\ArticleRepository ;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 
 class ArticleController extends Controller
@@ -37,7 +39,6 @@ class ArticleController extends Controller
 
     public function editerAction(Article $article){
         $em = $this->getDoctrine()->getManager() ;
-    
         $type = new ArticleType() ;
         $form = $this->createForm($type,$article) ;
         $request = $this->getRequest() ;
@@ -51,6 +52,7 @@ class ArticleController extends Controller
             }
                     
         }
+    
         return $this->render('BlogBundle:Admin:editer.html.twig', array(
             'id'        => $article->getId(),
             'form'      => $form->createView(),

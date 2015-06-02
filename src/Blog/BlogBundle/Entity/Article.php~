@@ -83,6 +83,12 @@ class Article
      */
     private $nbvues = 0 ;
 
+     /**
+   * @ORM\ManyToMany(targetEntity="Blog\BlogBundle\Entity\Tag", cascade={"persist"})
+   */
+
+    private $tag;
+
 
 
     function __construct(){
@@ -318,5 +324,38 @@ class Article
     public function getNbvues()
     {
         return $this->nbvues;
+    }
+
+    /**
+     * Add tag
+     *
+     * @param \Blog\BlogBundle\Entity\Tag $tag
+     * @return Article
+     */
+    public function addTag(\Blog\BlogBundle\Entity\Tag $tag)
+    {
+        $this->tag[] = $tag;
+    
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \Blog\BlogBundle\Entity\Tag $tag
+     */
+    public function removeTag(\Blog\BlogBundle\Entity\Tag $tag)
+    {
+        $this->tag->removeElement($tag);
+    }
+
+    /**
+     * Get tag
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTag()
+    {
+        return $this->tag;
     }
 }

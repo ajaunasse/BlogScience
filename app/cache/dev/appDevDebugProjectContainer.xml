@@ -29,7 +29,7 @@
     <parameter key="database_driver">pdo_mysql</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">ifks</parameter>
+    <parameter key="database_name">blogScience</parameter>
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">admin</parameter>
     <parameter key="mailer_transport">smtp</parameter>
@@ -2745,7 +2745,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>556c8e10080a1</argument>
+            <argument>556de0374f9c9</argument>
           </service>
         </argument>
       </argument>
@@ -3020,7 +3020,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>556c8e10080a1</argument>
+            <argument>556de0374f9c9</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3440,7 +3440,7 @@
         <argument key="driver">pdo_mysql</argument>
         <argument key="host">127.0.0.1</argument>
         <argument key="port">null</argument>
-        <argument key="dbname">ifks</argument>
+        <argument key="dbname">blogScience</argument>
         <argument key="user">root</argument>
         <argument key="password">admin</argument>
         <argument key="charset">UTF8</argument>
