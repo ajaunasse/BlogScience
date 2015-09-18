@@ -5,6 +5,7 @@ namespace Blog\BlogBundle\Entity ;
 use Doctrine\ORM\EntityRepository ;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
+
 class ArticleRepository extends EntityRepository {
 
 	public function getArticles($nombreParPage, $page){
@@ -13,17 +14,15 @@ class ArticleRepository extends EntityRepository {
       throw new \InvalidArgumentException('L\'argument $page ne peut être inférieur à 1 (valeur : "'.$page.'").');
     }
   		$query = $this->createQueryBuilder('a')
-                ->where('a.online = :boolean')
-                  ->setParameter('boolean', true)
-                  ->orderBy('a.date', 'DESC')
-                  ->getQuery();
+                    ->join('a.tag', 't')
+                    ->addSelect('t')
+                    ->where('a.online = :boolean')
+                    ->setParameter('boolean', true)
+                    ->orderBy('a.date', 'DESC')
+                    ->getQuery();
 
-   // On définit l'article à partir duquel commencer la liste
     $query->setFirstResult(($page-1) * $nombreParPage)
           ->setMaxResults($nombreParPage);
-
-    // Enfin, on retourne l'objet Paginator correspondant à la requête construite
-    // (n'oubliez pas le use correspondant en début de fichier)
     return new Paginator($query);
 	}
 
@@ -38,5 +37,14 @@ class ArticleRepository extends EntityRepository {
     	return $query->getResult();
 
 	}
+
+  public function getArticlesByTag($name){
+    $query = $this->createQueryBuilder('a')
+                  ->join('a.tag', 't')
+                  ->where('t.name = :name')
+                  ->setParameter('name', $name)
+                  ->getQuery();
+    return $query->getResult() ;
+  }
 
 }

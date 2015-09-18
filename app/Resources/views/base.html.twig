@@ -5,10 +5,20 @@
         <title>{% block title %} IFKS {% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+               <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+               <link rel="stylesheet" href="{{ asset('css/style2.css') }} ">
+               <link rel="stylesheet" href="{{ asset('css/bootstrapGlyph.css') }} ">
+               
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% block menu %} {{ render(controller("BlogBundle:Public:menu")) }} {% endblock %}
+     
+
+        {% endblock %}
         {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+         <script type="text/javascript" src="{{ asset('js/webfont.js') }}"></script>
         {% endblock %}
     </body>
 </html>

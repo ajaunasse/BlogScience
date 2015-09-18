@@ -35,6 +35,12 @@ class Categorie
      */
     private $description;
 
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="color", type="string", length=255)
+    */
+    private $color ;
 
     /**
      * Get id
@@ -90,5 +96,22 @@ class Categorie
     public function getDescription()
     {
         return $this->description;
+    }
+    /**
+    * Get color 
+    * 
+    * @return string
+    */
+    public function getColor(){
+        return $this->color ;
+    }
+    /**
+    * Set color
+    * @param string $color
+    * @return string
+    */
+    public function setColor($color){
+        $this->color = $color ;
+        return $this ;
     }
 }

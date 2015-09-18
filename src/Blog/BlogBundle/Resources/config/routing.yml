@@ -13,5 +13,7 @@ page_categorie:
     defaults : { _controller : BlogBundle:Public:categorie}
     requirements :
         id : \d+
-
+page_tag:
+   path : /Tag/{name}
+   defaults : { _controller: BlogBundle:Public:tag}
 

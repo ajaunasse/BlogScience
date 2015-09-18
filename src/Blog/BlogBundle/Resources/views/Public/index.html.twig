@@ -1,25 +1,31 @@
 {% extends "::base.html.twig" %}
+  
 
 {% block body %}
+{% block menu %} {{ parent() }} {% endblock %}
+<div class="container">
+  <div class="row">
+   <div class="col-xs-12  col-sm-8">
+    	{% for article in articles %}
+    		{% include "BlogBundle:Public:article_layout.html.twig" with {'link' : true, 'contenu' : false, 'description' : true, 'tags' : true} %}
+    	<hr>
+    	{% endfor%}
 
+    <div class="pagination">
+      <ul>
+        {% for p in range(1, nombrePage) %}
+          <li{% if p == page %} class="active"{% endif %}>
+            <a href="{{ path('blog_homepage', {'page': p}) }}">{{ p }}</a>
+          </li>
 
-	{% for article in articles %}
-		{% include "BlogBundle:Public:article_layout.html.twig" with {'link' : true, 'contenu' : false, 'description' : true} %}
-	<hr>
-		
-	{% endfor%}
-
-  <div class="pagination">
-    <ul>
-      {% for p in range(1, nombrePage) %}
-        <li{% if p == page %} class="active"{% endif %}>
-          <a href="{{ path('blog_homepage', {'page': p}) }}">{{ p }}</a>
-        </li>
-
-      {% endfor %}
-    </ul>
+        {% endfor %}
+      </ul>
+    </div>
+   </div>
   </div>
+</div>
 {% block javascripts %}
+{{ parent() }}
   <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'blogscience';

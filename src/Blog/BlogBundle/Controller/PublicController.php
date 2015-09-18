@@ -13,11 +13,15 @@ class PublicController extends Controller
     public function indexAction($page)
     {
     	$em = $this->getDoctrine()->getManager() ;
-    	  $articles = $this->getDoctrine()
+        try {
+    	        $articles = $this->getDoctrine()
                      ->getManager()
                      ->getRepository('BlogBundle:Article')
                      ->getArticles(5, $page);
 
+        } catch(\Exception $e){
+            return new Response( "Article introuvable", 404) ;
+        }
 
         return $this->render('BlogBundle:Public:index.html.twig', array(
             'articles'      => $articles,
@@ -56,6 +60,26 @@ class PublicController extends Controller
         return $this->render('BlogBundle:Public:categorie.html.twig', array(
 
             'articles' => $articles));
+    }
+
+    public function tagAction($name){
+        $em = $this->getDoctrine()->getManager() ;
+    try {
+        $articles = $this->getDoctrine()
+                     ->getManager()
+                     ->getRepository('BlogBundle:Article')
+                     ->getArticlesByTag($name);
+       
+        } catch(\Exception $e){
+            return new Response( "Article introuvable", 404) ;
+        }
+        return $this->render('BlogBundle:Public:tag.html.twig', array(
+
+            'articles' => $articles));
+    }
+    public function menuAction(){
+        $categories = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Categorie')->findAll() ;
+        return $this->render('BlogBundle:Public:menu.html.twig', array('categories' => $categories)) ;
     }
 
 }

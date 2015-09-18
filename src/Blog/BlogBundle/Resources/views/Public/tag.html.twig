@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+{% block menu %} {{ parent() }} {% endblock %}
+<div class="container">
+			<div class="row">
+				<div class="col-xs-12  col-sm-8">
+	{% for article in articles %}
+		{% include "BlogBundle:Public:article_layout.html.twig" with {'link' : true, 'contenu' : false, 'description' : true, 'tags' : true} %}
+	<hr>
+	{% endfor%}
+	</div></div></div>
+{% endblock%}

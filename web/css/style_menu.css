@@ -1,0 +1,212 @@
+.header {
+    position: relative;
+    background-color: #fff;
+    border-top: 1px solid #e4e4e4;
+    -webkit-box-shadow: 0 1px 5px #dcdddd;
+    box-shadow: 0 1px 5px #dcdddd;
+}
+.push-down-45 {
+    margin-bottom: 45px;
+}
+/** Média Query **/
+@media (min-width: 1200px)
+.container {
+    width: 1170px;
+}
+@media (min-width: 992px)
+.container {
+    width: 970px;
+}
+@media (min-width: 768px)
+.container {
+    width: 750px;
+}
+@media (min-width: 992px)
+.container>.navbar-collapse, .container>.navbar-header {
+    margin-right: 0;
+    margin-left: 0;
+}
+@media (min-width: 992px)
+.navbar-header {
+    float: left;
+}
+@media (min-width: 992px)
+.navbar-toggle {
+    display: none;
+}
+@media (min-width: 992px)
+.navbar {
+    width: auto;
+}
+@media (min-width: 992px)
+.navbar {
+    border-radius: 4px;
+}
+@media (min-width: 992px)
+.navbar-collapse.collapse {
+    display: block!important;
+    height: auto!important;
+    padding-bottom: 0;
+    overflow: visible!important;
+}
+@media (min-width: 992px)
+.navbar-collapse {
+    width: auto;
+    border-top: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+@media (min-width: 992px)
+.navigation {
+    padding: 0;
+}
+@media (min-width: 992px)
+.navigation>li {
+    float: left;
+    padding: 0;
+}
+/* Fin Media Query */
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.container:after {
+    clear: both;
+}
+.container:after, 
+.container:before {
+    content: " ";
+    display: table;
+}
+.logo {
+    margin-right: 15px;
+}
+.pull-left {
+    float: left!important;
+}
+header a {
+    border-bottom: 0;
+}
+a {
+	color: #51ab6d;
+    border-bottom: 1px dotted #9a9a90;
+    text-decoration: none;
+    background: 0 0;
+}
+.logo img {
+    height: 70px;
+    width: auto;
+}
+img {
+    vertical-align: middle;
+       border: 0;
+}
+.container>.navbar-collapse, .container>.navbar-header {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.navbar-header:after, .navbar-header:before {
+    content: " ";
+    display: table;
+}
+.navbar-header:after {
+    clear: both;
+}
+.navbar-toggle {
+    border: 1px solid #51ab6d;
+    border-radius: 2px;
+    margin: 18px 15px;
+    background: -webkit-gradient(linear,left top,left bottom,from(#51ab6d),to(#419a5c));
+    background: -webkit-linear-gradient(top,#51ab6d 0,#419a5c 100%);
+    background: linear-gradient(to bottom,#51ab6d 0,#419a5c 100%);
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.navbar-toggle .icon-bar {
+    background: #fff;
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+.navbar-toggle .icon-bar+.icon-bar {
+    margin-top: 4px;
+}
+.navbar-default {
+    background-color: transparent;
+    border: 0;
+    font-family: Lato,sans-serif;
+    margin: 0;
+    min-height: 0;
+}
+.navbar {
+    margin: 0;
+    float: left;
+    width: 100%;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    border: 1px solid transparent;
+}
+.navbar:after, 
+.navbar:before {
+    content: " ";
+    display: table;
+}
+
+.navbar-default .navbar-collapse, 
+.navbar-default .navbar-form {
+    border-color: #e7e7e7;
+}
+/*
+.navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+    max-height: 600px;
+}
+.navbar-collapse {
+    overflow-x: visible;
+    border-top: 1px solid transparent;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    -webkit-overflow-scrolling: touch;
+}
+.collapse {
+    display: none;
+}
+*/
+.navigation {
+    list-style: none;
+    margin: 0;
+    padding: 15px 0;
+}
+.navbar-default {
+    background-color: transparent;
+    border: 0;
+    font-family: Lato,sans-serif;
+    margin: 0;
+    min-height: 0;
+}
+
+@media (min-width: 992px)
+.navigation>li {
+    float: left;
+    padding: 0;
+}
+.dropdown {
+    position: relative;
+}

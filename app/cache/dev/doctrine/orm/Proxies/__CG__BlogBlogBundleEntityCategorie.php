@@ -75,10 +75,22 @@ class Categorie extends \Blog\BlogBundle\Entity\Categorie implements \Doctrine\O
         return parent::getDescription();
     }
 
+    public function getColor()
+    {
+        $this->__load();
+        return parent::getColor();
+    }
+
+    public function setColor($color)
+    {
+        $this->__load();
+        return parent::setColor($color);
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'name', 'description');
+        return array('__isInitialized__', 'id', 'name', 'description', 'color');
     }
 
     public function __clone()

@@ -135,6 +135,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_categorie')), array (  '_controller' => 'Blog\\BlogBundle\\Controller\\PublicController::categorieAction',));
         }
 
+        // page_tag
+        if (0 === strpos($pathinfo, '/Tag') && preg_match('#^/Tag/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'page_tag')), array (  '_controller' => 'Blog\\BlogBundle\\Controller\\PublicController::tagAction',));
+        }
+
         if (0 === strpos($pathinfo, '/admin')) {
             // Blog_admin_home
             if (rtrim($pathinfo, '/') === '/admin') {

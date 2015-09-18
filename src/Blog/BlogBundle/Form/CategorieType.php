@@ -19,6 +19,8 @@ class CategorieType extends AbstractType
               'attr' => array('class'=> 'form-control')))
             ->add('description','textarea', array(
               'attr' => array('class'=> 'form-control')))
+            ->add('color','text', array(
+              'attr' => array('class'=> 'form-control')))
         ;
     }
     

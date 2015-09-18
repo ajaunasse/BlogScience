@@ -1,7 +1,14 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-	{% include "BlogBundle:Public:article_layout.html.twig" with {'link' : false, 'contenu' : true, 'description' : false  } %}
+{% block menu %} {{ parent() }} {% endblock %}
+<div class="container">
+<div class="row">
+     <div class="col-xs-12 col-md-12">
+	{% include "BlogBundle:Public:article_layout.html.twig" with {'link' : false, 'contenu' : true, 'description' : false, 'tags' : true } %}
+    </div>
+</div>
+</div>
 {% endblock%}
 
 {% block javascripts %}

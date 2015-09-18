@@ -1,30 +1,67 @@
-	<article>
-		<header>
-			<h3> {{ article.titre }} </h3>
-			<time>{{ article.date|date('d M Y') }}</time>
-			<p>
-				<a href="{{ path('page_categorie',{'id':article.categorie.id, 'name':article.categorie.name}) }}">{{ article.categorie.name }} </a>
-			</P>
-		</header>
+<div class="boxed  sticky  push-down-45">
+	<div class="meta">
+				<div class="categorie" style="background-color : {{ article.categorie.color }}">
+						<a href="{{ path('page_categorie',{'id':article.categorie.id, 'name':article.categorie.name}) }}">{{ article.categorie.name }} </a>
+					</div>
+			<img src="{{ asset('uploads/images/') ~ article.getImage().getPath() }}" alt="{{ article.getImage().getName() }}"  class="wp-post-image"  width="748" height="324"/>
 
-		 <img src="{{ asset('uploads/images/') ~ article.getImage().getPath() }}" alt="{{ article.getImage().getName() }}" height="392" width="590"/>
-		{% if description %}
-		<p>
-			{{article.description}}
-		</p>
-		{% endif %}
-		{% if contenu %}
-		<div class="content">
+		<div class="meta__container">
+			<div class="row">
+				<div class="col-xs-12  col-sm-8">
 
-
-			<p> {{article.contenu|markdown}} </p>
+					<div class="meta__info">
+						<span class="meta__author">
+							<span class="glyphicon glyphicon-calendar"></span> <time>{{ article.date|date('d M Y') }}</time>
+							 </span>
+					</div>
+				</div>
+				<div class="col-xs-12  col-sm-4">
+					<div class="meta__comments">
+						<span class="glyphicon glyphicon-comment"></span> &nbsp;
+						{% if tags %}
+							Tags : 
+							{% for tag in article.tag %}
+								<a href="{{ path('page_tag', {'name': tag.name}) }}"> {{tag.name}} </a>
+							{% endfor %}
+						{% endif %}
+					</div>
+				</div>
+			</div>
 		</div>
-		{% endif %}
-		<div>
-			{% if link %}
-			<a href="{{ path('article_only', {'id':article.id ,'slug':article.slug }) }}" title="{{article.contenu}}"  data-disqus-identifier="{{ article.id }}"> Lire la suite</a>
-			<span class="disqus-comment-count" data-disqus-url="{{ path('article_only', {'id':article.id ,'slug':article.slug }) }}">  </span>
-			<span class="disqus-comment-count" data-disqus-identifier="{{ article.id }}"> </span>
-			{% endif %}
+	</div>
+ 
+	<div class="sticky__box">
+		<span class="sticky__circle"></span>
+		<span class="sticky__circle"></span>
+		<span class="sticky__circle"></span>
+		<span class="sticky__circle"></span>
+	</div>
+ 
+	<div class="row">
+		<div class="col-xs-10  col-xs-offset-1">
+			<div class="post-content--front-page">
+				<h2 class="front-page-title">
+						<a href="{{ path('article_only', {'id':article.id ,'slug':article.slug }) }}" title="{{article.titre}}"  data-disqus-identifier="{{ article.id }}"> {{ article.titre }}</a>
+				</h2>
+					{% if description %}
+				<p>
+					{{article.description}}
+				</p>
+				{% endif %}
+						{% if contenu %}
+						<p> {{article.contenu|markdown}} </p>
+				{% endif %}
+
+			</div>
+ 
+				<a href="{{ path('article_only', {'id':article.id ,'slug':article.slug }) }}" title="{{article.contenu}}"  data-disqus-identifier="{{ article.id }}">
+				<div class="read-more">
+					Lire la suite
+					<div class="read-more__arrow">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</div>
+				</div>
+			</a>
 		</div>
-	</article>
+	</div>
+</div>
