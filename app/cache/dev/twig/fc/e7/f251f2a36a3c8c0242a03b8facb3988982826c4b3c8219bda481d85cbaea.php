@@ -45,7 +45,7 @@ class __TwigTemplate_fce7f251f2a36a3c8c0242a03b8facb3988982826c4b3c8219bda481d85
 \t\t\t\t  \t\t<tr> 
 \t\t\t\t \t\t\t<th> Id </th> 
 \t\t\t\t\t\t\t<th> Titre </th>
-\t\t\t\t\t\t\t<th> Image </th> 
+\t\t\t\t\t\t\t<th> Lien de l'image </th> 
 \t\t\t\t\t\t\t<th> Action </th>  
 \t\t\t\t  \t\t</tr> 
 \t\t  \t\t\t</thead>
@@ -65,12 +65,12 @@ class __TwigTemplate_fce7f251f2a36a3c8c0242a03b8facb3988982826c4b3c8219bda481d85
             // line 24
             echo twig_escape_filter($this->env, $this->getAttribute($context["image"], "name", array()), "html", null, true);
             echo "  </td> 
-\t\t\t\t\t\t\t\t<td>  <img src=\"";
+\t\t\t\t\t\t\t\t<td> <a href=\"";
             // line 25
             echo twig_escape_filter($this->env, ($this->env->getExtension('assets')->getAssetUrl("uploads/images/") . $this->getAttribute($context["image"], "path", array())), "html", null, true);
-            echo "\" alt=\"";
+            echo "\"> ";
             echo twig_escape_filter($this->env, $this->getAttribute($context["image"], "name", array()), "html", null, true);
-            echo "\" height=\"200\" width=\"340\" /> </td>
+            echo " </a> </td>
 \t\t\t\t\t\t\t\t<td>  <a href=\"\"> Voir </a> |  <a href=\"\"> editer </a> | <a href=\"\"> Supprimer </a> </td> 
   \t\t\t\t\t\t\t</tr> 
 \t\t  \t\t\t\t";

@@ -13,7 +13,7 @@
 				  		<tr> 
 				 			<th> Id </th> 
 							<th> Titre </th>
-							<th> Image </th> 
+							<th> Lien de l'image </th> 
 							<th> Action </th>  
 				  		</tr> 
 		  			</thead>
@@ -22,7 +22,7 @@
 		  					<tr> 
 								<td> {{ image.id }} </td> 
 								<td> {{ image.name }}  </td> 
-								<td>  <img src="{{ asset('uploads/images/') ~ image.path }}" alt="{{ image.name }}" height="200" width="340" /> </td>
+								<td> <a href="{{ asset('uploads/images/') ~ image.path }}"> {{ image.name }} </a> </td>
 								<td>  <a href=""> Voir </a> |  <a href=""> editer </a> | <a href=""> Supprimer </a> </td> 
   							</tr> 
 		  				{% endfor %}

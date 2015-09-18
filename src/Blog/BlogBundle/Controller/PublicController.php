@@ -13,20 +13,25 @@ class PublicController extends Controller
     public function indexAction($page)
     {
     	$em = $this->getDoctrine()->getManager() ;
-        try {
+  
     	        $articles = $this->getDoctrine()
                      ->getManager()
                      ->getRepository('BlogBundle:Article')
                      ->getArticles(5, $page);
 
-        } catch(\Exception $e){
-            return new Response( "Article introuvable", 404) ;
-        }
+                $popularArticles = $this->getDoctrine()
+                     ->getManager()
+                     ->getRepository('BlogBundle:Article')
+                     ->getPopularArticle(3);
+          
+
+ 
 
         return $this->render('BlogBundle:Public:index.html.twig', array(
-            'articles'      => $articles,
-            'page'          => $page,
-            'nombrePage'    => ceil(count($articles)/5)));
+            'articles'          => $articles,
+            'page'              => $page,
+            'popularArticles'   => $popularArticles,
+            'nombrePage'        => ceil(count($articles)/5)));
     }
 
     public function onlyAction($id){

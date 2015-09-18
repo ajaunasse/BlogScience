@@ -34,7 +34,7 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
         // line 6
         echo "<div class=\"container\">
   <div class=\"row\">
-   <div class=\"col-xs-12  col-sm-8\">
+    <div class=\"col-xs-8  col-sm-8\">
     \t";
         // line 9
         $context['_parent'] = (array) $context;
@@ -73,7 +73,7 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 13
         echo "
-    <div class=\"pagination\">
+      <div class=\"pagination\">
       <ul>
         ";
         // line 16
@@ -101,12 +101,61 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 22
         echo "      </ul>
-    </div>
+      </div>
    </div>
+   <div class=\"col-xs-12  col-md-4\">
+    <div class=\"sidebar  boxed  push-down-30\">
+      <div class=\"col-xs-10  col-xs-offset-1\">
+        <div class=\"row\">
+          <div class=\"widget-posts  push-down-30\">
+            <h6> Article Populaires </h6>
+            <hr>
+              ";
+        // line 32
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["popularArticles"]) ? $context["popularArticles"] : $this->getContext($context, "popularArticles")));
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["popArticle"]) {
+            // line 33
+            echo "
+                ";
+            // line 34
+            $this->loadTemplate("BlogBundle:Public:sidebar_popular_article.html.twig", "BlogBundle:Public:index.html.twig", 34)->display($context);
+            // line 35
+            echo "
+            ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['popArticle'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 37
+        echo "        </div>
+      </div>
+      </div>
   </div>
 </div>
 ";
-        // line 27
+        // line 42
         $this->displayBlock('javascripts', $context, $blocks);
     }
 
@@ -118,10 +167,10 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
         echo " ";
     }
 
-    // line 27
+    // line 42
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 28
+        // line 43
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
   <script type=\"text/javascript\">
@@ -151,6 +200,6 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
 
     public function getDebugInfo()
     {
-        return array (  125 => 28,  122 => 27,  114 => 5,  110 => 27,  103 => 22,  91 => 18,  84 => 17,  80 => 16,  75 => 13,  60 => 11,  57 => 10,  40 => 9,  35 => 6,  33 => 5,  30 => 4,  11 => 1,);
+        return array (  174 => 43,  171 => 42,  163 => 5,  159 => 42,  152 => 37,  137 => 35,  135 => 34,  132 => 33,  115 => 32,  103 => 22,  91 => 18,  84 => 17,  80 => 16,  75 => 13,  60 => 11,  57 => 10,  40 => 9,  35 => 6,  33 => 5,  30 => 4,  11 => 1,);
     }
 }

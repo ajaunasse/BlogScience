@@ -47,4 +47,14 @@ class ArticleRepository extends EntityRepository {
     return $query->getResult() ;
   }
 
+  public function getPopularArticle($limit){
+    $query = $this->createQueryBuilder('a')
+                  ->where('a.online = :boolean')
+                  ->setParameter('boolean' , true)
+                  ->orderBy('a.nbvues', 'DESC')
+                  ->setMaxResults($limit) ;
+
+    return $query->getQuery()->getResult() ;
+  }
+
 }
