@@ -57,7 +57,9 @@ class __TwigTemplate_d765233caa42c348c264d46ac873f148ce1e1a9df28a7a0ff1395d8e09a
     public function block_javascripts($context, array $blocks = array())
     {
         // line 15
-        echo "            <div id=\"disqus_thread\"></div>
+        $this->displayParentBlock("javascripts", $context, $blocks);
+        echo "
+            <div id=\"disqus_thread\"></div>
             <script type=\"text/javascript\">
                 /* * * CONFIGURATION VARIABLES * * */
                 var disqus_shortname = 'blogscience';

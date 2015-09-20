@@ -54,13 +54,15 @@
 
 			</div>
  
-				<a href="{{ path('article_only', {'id':article.id ,'slug':article.slug }) }}" title="{{article.contenu}}"  data-disqus-identifier="{{ article.id }}">
+				<a href="{{ path('article_only', {'id':article.id ,'slug':article.slug }) }}" title="{{article.titre}}"  data-disqus-identifier="{{ article.id }}">
+					{%  if link %}
 				<div class="read-more">
 					Lire la suite
 					<div class="read-more__arrow">
 						<span class="glyphicon glyphicon-chevron-right"></span>
 					</div>
 				</div>
+					{%  endif %}
 			</a>
 		</div>
 	</div>

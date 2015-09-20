@@ -27,7 +27,7 @@ class __TwigTemplate_484521475bda767426314119ecc0f2a3f7dfe113b8a230aed644ee7893d
 \t\t\t</a>
 \t\t</div>
 \t\t<div class=\"navbar-header\">
-\t\t\t<button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#readable-navbar-collapse\">
+\t\t\t<button id=\"hamburger\" type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#readable-navbar-collapse\">
 \t\t\t\t<span class=\"sr-only\">Toggle navigation</span>
 \t\t\t\t<span class=\"icon-bar\"></span>
 \t\t\t\t<span class=\"icon-bar\"></span>
@@ -35,7 +35,7 @@ class __TwigTemplate_484521475bda767426314119ecc0f2a3f7dfe113b8a230aed644ee7893d
 \t\t\t</button>
 \t\t</div>
 \t\t<nav class=\"navbar  navbar-default\" role=\"navigation\">
-\t\t\t<div class=\"collapse  navbar-collapse\" id=\"readable-navbar-collapse\">
+\t\t\t<div  class=\"collapse  navbar-collapse\" id=\"readable-navbar-collapse\">
 \t\t\t\t<ul class=\"navigation\">
 \t\t\t\t\t<li class=\"dropdown  active\">
 \t\t\t\t\t\t<a href=\"";

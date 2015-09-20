@@ -12,6 +12,7 @@ class __TwigTemplate_7a071da55941c963093336cbfa30b8f424c5df9ef7bedfa5325634bec33
         $this->blocks = array(
             'body' => array($this, 'block_body'),
             'menu' => array($this, 'block_menu'),
+            'javascript' => array($this, 'block_javascript'),
         );
     }
 
@@ -84,6 +85,15 @@ class __TwigTemplate_7a071da55941c963093336cbfa30b8f424c5df9ef7bedfa5325634bec33
         echo " ";
     }
 
+    // line 15
+    public function block_javascript($context, array $blocks = array())
+    {
+        // line 16
+        $this->displayParentBlock("javascript", $context, $blocks);
+        echo "
+";
+    }
+
     public function getTemplateName()
     {
         return "BlogBundle:Public:categorie.html.twig";
@@ -96,6 +106,6 @@ class __TwigTemplate_7a071da55941c963093336cbfa30b8f424c5df9ef7bedfa5325634bec33
 
     public function getDebugInfo()
     {
-        return array (  80 => 4,  75 => 13,  60 => 11,  57 => 10,  40 => 9,  34 => 5,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  92 => 16,  89 => 15,  81 => 4,  76 => 13,  61 => 11,  58 => 10,  41 => 9,  35 => 5,  33 => 4,  30 => 3,  11 => 1,);
     }
 }

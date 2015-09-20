@@ -5,13 +5,14 @@
 <div class="container">
 <div class="row">
      <div class="col-xs-12 col-md-12">
-	{% include "BlogBundle:Public:article_layout.html.twig" with {'link' : false, 'contenu' : true, 'description' : false, 'tags' : true } %}
+	{% include "BlogBundle:Public:article_layout.html.twig" with {'link' : false, 'contenu' : true, 'description' : false, 'tags' : true} %}
     </div>
 </div>
 </div>
 {% endblock%}
 
 {% block javascripts %}
+{{ parent()}}
             <div id="disqus_thread"></div>
             <script type="text/javascript">
                 /* * * CONFIGURATION VARIABLES * * */

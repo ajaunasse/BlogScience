@@ -55,11 +55,13 @@ class __TwigTemplate_b46a8bfc918bde74e3472a61207317a912a7a32d2b01da5d5f0fad8e541
         // line 14
         $this->displayBlock('body', $context, $blocks);
         // line 19
-        echo "        ";
+        echo "       
+    </body>
+     ";
+        // line 21
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 23
-        echo "    </body>
-</html>
+        // line 26
+        echo "</html>
 ";
     }
 
@@ -94,17 +96,18 @@ class __TwigTemplate_b46a8bfc918bde74e3472a61207317a912a7a32d2b01da5d5f0fad8e541
         echo " ";
     }
 
-    // line 19
+    // line 21
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 20
+        // line 22
         echo "        <script type=\"text/javascript\" src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jquery.js"), "html", null, true);
+        echo "\"></script>
+        <script type=\"text/javascript\" src=\"";
+        // line 23
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/main.js"), "html", null, true);
         echo "\"></script>
-         <script type=\"text/javascript\" src=\"";
-        // line 21
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/webfont.js"), "html", null, true);
-        echo "\"></script>
+
         ";
     }
 
@@ -120,6 +123,6 @@ class __TwigTemplate_b46a8bfc918bde74e3472a61207317a912a7a32d2b01da5d5f0fad8e541
 
     public function getDebugInfo()
     {
-        return array (  106 => 21,  101 => 20,  98 => 19,  90 => 15,  84 => 16,  81 => 15,  78 => 14,  73 => 6,  67 => 5,  61 => 23,  58 => 19,  56 => 14,  49 => 10,  45 => 9,  41 => 8,  36 => 7,  34 => 6,  30 => 5,  24 => 1,);
+        return array (  108 => 23,  103 => 22,  100 => 21,  92 => 15,  86 => 16,  83 => 15,  80 => 14,  75 => 6,  69 => 5,  64 => 26,  62 => 21,  58 => 19,  56 => 14,  49 => 10,  45 => 9,  41 => 8,  36 => 7,  34 => 6,  30 => 5,  24 => 1,);
     }
 }

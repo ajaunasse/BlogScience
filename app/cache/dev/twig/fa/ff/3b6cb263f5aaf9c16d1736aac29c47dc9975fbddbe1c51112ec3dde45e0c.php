@@ -134,17 +134,24 @@ class __TwigTemplate_faff3b6cb263f5aaf9c16d1736aac29c47dc9975fbddbe1c51112ec3dde
         // line 57
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_only", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id", array()), "slug" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "slug", array()))), "html", null, true);
         echo "\" title=\"";
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "contenu", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "titre", array()), "html", null, true);
         echo "\"  data-disqus-identifier=\"";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id", array()), "html", null, true);
         echo "\">
-\t\t\t\t<div class=\"read-more\">
+\t\t\t\t\t";
+        // line 58
+        if ((isset($context["link"]) ? $context["link"] : $this->getContext($context, "link"))) {
+            // line 59
+            echo "\t\t\t\t<div class=\"read-more\">
 \t\t\t\t\tLire la suite
 \t\t\t\t\t<div class=\"read-more__arrow\">
 \t\t\t\t\t\t<span class=\"glyphicon glyphicon-chevron-right\"></span>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
-\t\t\t</a>
+\t\t\t\t\t";
+        }
+        // line 66
+        echo "\t\t\t</a>
 \t\t</div>
 \t</div>
 </div>";
@@ -162,6 +169,6 @@ class __TwigTemplate_faff3b6cb263f5aaf9c16d1736aac29c47dc9975fbddbe1c51112ec3dde
 
     public function getDebugInfo()
     {
-        return array (  135 => 57,  130 => 54,  124 => 52,  121 => 51,  115 => 48,  112 => 47,  110 => 46,  99 => 44,  80 => 27,  77 => 26,  66 => 24,  62 => 23,  59 => 22,  57 => 21,  47 => 14,  34 => 6,  27 => 4,  23 => 3,  19 => 1,);
+        return array (  154 => 66,  145 => 59,  143 => 58,  135 => 57,  130 => 54,  124 => 52,  121 => 51,  115 => 48,  112 => 47,  110 => 46,  99 => 44,  80 => 27,  77 => 26,  66 => 24,  62 => 23,  59 => 22,  57 => 21,  47 => 14,  34 => 6,  27 => 4,  23 => 3,  19 => 1,);
     }
 }

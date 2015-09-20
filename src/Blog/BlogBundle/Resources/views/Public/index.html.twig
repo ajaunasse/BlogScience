@@ -5,24 +5,25 @@
 {% block menu %} {{ parent() }} {% endblock %}
 <div class="container">
   <div class="row">
-    <div class="col-xs-8  col-sm-8">
+    <div class="col-xs-12  col-md-8">
     	{% for article in articles %}
     		{% include "BlogBundle:Public:article_layout.html.twig" with {'link' : true, 'contenu' : false, 'description' : true, 'tags' : true} %}
     	<hr>
     	{% endfor%}
-
       <div class="pagination">
-      <ul>
-        {% for p in range(1, nombrePage) %}
-          <li{% if p == page %} class="active"{% endif %}>
-            <a href="{{ path('blog_homepage', {'page': p}) }}">{{ p }}</a>
-          </li>
-
-        {% endfor %}
-      </ul>
+        <ul>
+          {%  if (page == 1 and nombrePage > 1) %}
+            <a href="{{ path('blog_homepage', {'page': page+1}) }}">Suivant</a>
+            {%  elseif (page > 1 and page != nombrePage) %}
+            <a href="{{ path('blog_homepage', {'page': page+1}) }}"> Suivant</a>
+            <a href="{{ path('blog_homepage', {'page': page-1}) }}"> <p>Précédent</p> </a>
+            {%  elseif (page == nombrePage and  page != 1) %}
+            <a href="{{ path('blog_homepage', {'page': page-1}) }}"><p>Précédent</p></a>
+          {%  endif %}
+        </ul>
       </div>
    </div>
-   <div class="col-xs-12  col-md-4">
+   <div class="col-xs-12  col-md-4 col-sm-12">
     <div class="sidebar  boxed  push-down-30">
       <div class="col-xs-10  col-xs-offset-1">
         <div class="row">
@@ -39,8 +40,10 @@
       </div>
   </div>
 </div>
+
+{% endblock%}
 {% block javascripts %}
-{{ parent() }}
+{{ parent()}}
   <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'blogscience';
@@ -53,5 +56,4 @@
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
-{% endblock%}
 {% endblock%}

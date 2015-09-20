@@ -34,7 +34,7 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
         // line 6
         echo "<div class=\"container\">
   <div class=\"row\">
-    <div class=\"col-xs-8  col-sm-8\">
+    <div class=\"col-xs-12  col-md-8\">
     \t";
         // line 9
         $context['_parent'] = (array) $context;
@@ -72,38 +72,40 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 13
-        echo "
-      <div class=\"pagination\">
-      <ul>
-        ";
-        // line 16
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["nombrePage"]) ? $context["nombrePage"] : $this->getContext($context, "nombrePage"))));
-        foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
-            // line 17
-            echo "          <li";
-            if (($context["p"] == (isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")))) {
-                echo " class=\"active\"";
-            }
-            echo ">
-            <a href=\"";
+        echo "      <div class=\"pagination\">
+        <ul>
+          ";
+        // line 15
+        if ((((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")) == 1) && ((isset($context["nombrePage"]) ? $context["nombrePage"] : $this->getContext($context, "nombrePage")) > 1))) {
+            // line 16
+            echo "            <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("blog_homepage", array("page" => ((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")) + 1))), "html", null, true);
+            echo "\">Suivant</a>
+            ";
+        } elseif (((        // line 17
+(isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")) > 1) && ((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")) != (isset($context["nombrePage"]) ? $context["nombrePage"] : $this->getContext($context, "nombrePage"))))) {
             // line 18
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("blog_homepage", array("page" => $context["p"])), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $context["p"], "html", null, true);
-            echo "</a>
-          </li>
-
-        ";
+            echo "            <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("blog_homepage", array("page" => ((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")) + 1))), "html", null, true);
+            echo "\"> Suivant</a>
+            <a href=\"";
+            // line 19
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("blog_homepage", array("page" => ((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")) - 1))), "html", null, true);
+            echo "\"> <p>Précédent</p> </a>
+            ";
+        } elseif (((        // line 20
+(isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")) == (isset($context["nombrePage"]) ? $context["nombrePage"] : $this->getContext($context, "nombrePage"))) && ((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")) != 1))) {
+            // line 21
+            echo "            <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("blog_homepage", array("page" => ((isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")) - 1))), "html", null, true);
+            echo "\"><p>Précédent</p></a>
+          ";
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 22
-        echo "      </ul>
+        // line 23
+        echo "        </ul>
       </div>
    </div>
-   <div class=\"col-xs-12  col-md-4\">
+   <div class=\"col-xs-12  col-md-4 col-sm-12\">
     <div class=\"sidebar  boxed  push-down-30\">
       <div class=\"col-xs-10  col-xs-offset-1\">
         <div class=\"row\">
@@ -111,7 +113,7 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
             <h6> Article Populaires </h6>
             <hr>
               ";
-        // line 32
+        // line 33
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["popularArticles"]) ? $context["popularArticles"] : $this->getContext($context, "popularArticles")));
         $context['loop'] = array(
@@ -128,12 +130,12 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["popArticle"]) {
-            // line 33
+            // line 34
             echo "
                 ";
-            // line 34
-            $this->loadTemplate("BlogBundle:Public:sidebar_popular_article.html.twig", "BlogBundle:Public:index.html.twig", 34)->display($context);
             // line 35
+            $this->loadTemplate("BlogBundle:Public:sidebar_popular_article.html.twig", "BlogBundle:Public:index.html.twig", 35)->display($context);
+            // line 36
             echo "
             ";
             ++$context['loop']['index0'];
@@ -148,15 +150,14 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['popArticle'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 38
         echo "        </div>
       </div>
       </div>
   </div>
 </div>
+
 ";
-        // line 42
-        $this->displayBlock('javascripts', $context, $blocks);
     }
 
     // line 5
@@ -167,10 +168,10 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
         echo " ";
     }
 
-    // line 42
+    // line 45
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 43
+        // line 46
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
   <script type=\"text/javascript\">
@@ -200,6 +201,6 @@ class __TwigTemplate_aec33d38b8268cfb38fc34868b491ebf17258f69cc8b2f2a0902bf99e89
 
     public function getDebugInfo()
     {
-        return array (  174 => 43,  171 => 42,  163 => 5,  159 => 42,  152 => 37,  137 => 35,  135 => 34,  132 => 33,  115 => 32,  103 => 22,  91 => 18,  84 => 17,  80 => 16,  75 => 13,  60 => 11,  57 => 10,  40 => 9,  35 => 6,  33 => 5,  30 => 4,  11 => 1,);
+        return array (  175 => 46,  172 => 45,  164 => 5,  154 => 38,  139 => 36,  137 => 35,  134 => 34,  117 => 33,  105 => 23,  99 => 21,  97 => 20,  93 => 19,  88 => 18,  86 => 17,  81 => 16,  79 => 15,  75 => 13,  60 => 11,  57 => 10,  40 => 9,  35 => 6,  33 => 5,  30 => 4,  11 => 1,);
     }
 }

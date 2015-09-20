@@ -10,14 +10,14 @@ use Symfony\Component\HttpFoundation\Response ;
 
 class PublicController extends Controller
 {
-    public function indexAction($page)
+    public function indexAction($page,$parPage=2)
     {
     	$em = $this->getDoctrine()->getManager() ;
   
     	        $articles = $this->getDoctrine()
                      ->getManager()
                      ->getRepository('BlogBundle:Article')
-                     ->getArticles(5, $page);
+                     ->getArticles($parPage, $page);
 
                 $popularArticles = $this->getDoctrine()
                      ->getManager()
@@ -31,7 +31,8 @@ class PublicController extends Controller
             'articles'          => $articles,
             'page'              => $page,
             'popularArticles'   => $popularArticles,
-            'nombrePage'        => ceil(count($articles)/5)));
+            'nombrePage'        => ceil(count($articles)/$parPage)));
+
     }
 
     public function onlyAction($id){
